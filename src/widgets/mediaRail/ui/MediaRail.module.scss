@@ -1,0 +1,207 @@
+.mediaRail {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.railHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.railLabel {
+    position: relative;
+    margin: 0;
+    padding-left: 18px;
+    color: var(--color-light);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.railLabel::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 52px;
+    border-radius: 999px;
+    background-color: var(--janre-color);
+    transform: translateY(-50%);
+}
+
+.viewAllLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--description-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--janre-color);
+    }
+}
+
+.viewAllArrow {
+    transform: rotate(180deg);
+}
+
+.railShell {
+    position: relative;
+}
+
+.railViewport {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.railViewport::-webkit-scrollbar {
+    display: none;
+}
+
+.mediaList {
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mediaItem {
+    flex: 0 0 260px;
+}
+
+.arrowButton {
+    position: absolute;
+    top: 180px;
+    z-index: 2;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    background: rgba(12, 12, 14, 0.62);
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:disabled {
+        opacity: 0.35;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background: rgba(22, 22, 26, 0.92);
+        transform: translateY(-1px);
+        box-shadow: 0 0 24px rgba(238, 8, 20, 0.18);
+    }
+}
+
+.arrowButton .arrowLeft {
+    left: -26px;
+}
+
+.arrowRight {
+    right: -26px;
+}
+
+.arrowIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(238, 8, 20, 0.58);
+    transition: color 0.2s ease;
+}
+
+.arrowButton:hover .arrowIcon {
+    color: #ee0814;
+}
+
+.arrowIconRight {
+    transform: rotate(180deg);
+}
+
+.arrowHidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .railLabel {
+        font-size: 25px;
+    }
+
+    .railLabel::before {
+        height: 44px;
+    }
+
+    .mediaItem {
+        flex-basis: 220px;
+    }
+
+    .arrowButton {
+        top: 150px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .arrowLeft {
+        left: -18px;
+    }
+
+    .arrowRight {
+        right: -18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mediaRail {
+        gap: 24px;
+    }
+
+    .railHeader {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .railLabel {
+        padding-left: 14px;
+        font-size: 28px;
+    }
+
+    .railLabel::before {
+        width: 3px;
+        height: 34px;
+    }
+
+    .viewAllLink {
+        font-size: 14px;
+    }
+
+    .mediaList {
+        gap: 16px;
+    }
+
+    .mediaItem {
+        flex-basis: 180px;
+    }
+
+    .arrowButton {
+        display: none;
+    }
+}

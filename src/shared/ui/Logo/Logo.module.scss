@@ -1,0 +1,15 @@
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.redText {
+    color: var(--logo-color);
+}

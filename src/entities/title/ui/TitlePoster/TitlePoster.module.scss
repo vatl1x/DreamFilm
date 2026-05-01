@@ -1,0 +1,80 @@
+.posterWrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    // border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111113;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.posterWrapCard {
+    border-radius: 22px;
+}
+
+.posterWrapPoster {
+    border-radius: 28px;
+}
+
+.filmImage {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+.posterWrapCard .filmImage {
+    height: 360px;
+    border-radius: 22px;
+}
+
+.posterWrapPoster .filmImage {
+    height: 450px;
+    border-radius: 28px;
+}
+
+.rating {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+        z-index: 1;
+
+    background: rgba(23, 20, 19, 0.92);
+    backdrop-filter: blur(8px);
+}
+
+.playOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 8, 10, 0.18);
+    opacity: 0;
+    transition:
+        opacity 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.playBadge {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(229, 8, 21, 0.9);
+    box-shadow: 0 12px 28px rgba(229, 8, 21, 0.28);
+}
+
+.playBadge img {
+    display: block;
+    filter: brightness(0) invert(1);
+}

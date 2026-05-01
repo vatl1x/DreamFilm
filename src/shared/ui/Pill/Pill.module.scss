@@ -1,0 +1,46 @@
+.pill {
+    min-height: 36px;
+    padding: 0 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    color: #d4d4d8;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.default {
+    color: #d4d4d8;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.gold {
+    color: #e9ad00;
+    border-color: rgba(233, 173, 0, 0.5);
+    background: rgba(233, 173, 0, 0.08);
+}
+
+.green {
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.45);
+    background: rgba(34, 197, 94, 0.08);
+}
+
+.orange {
+    color: #f97316;
+    border-color: rgba(249, 115, 22, 0.45);
+    background: rgba(249, 115, 22, 0.08);
+}
+
+.red {
+    color: #ee0814;
+    border-color: rgba(238, 8, 20, 0.45);
+    background: rgba(238, 8, 20, 0.08);
+}
