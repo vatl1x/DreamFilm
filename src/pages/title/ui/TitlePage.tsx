@@ -10,7 +10,8 @@ export const TitlePage = () => {
     const { id } = useParams();
     useScrollToTop(id);
 
-    const { movieDetail, movieImages, isLoading, isError } = useTitlePage();
+    const { movieDetail, movieImages, isLoading, isError, isUnvailableWatch } =
+        useTitlePage();
 
     if (isLoading) return <div>Загрузка...</div>;
     if (isError || !movieDetail) return <div>Ошибка</div>;
@@ -36,7 +37,10 @@ export const TitlePage = () => {
                                 showPlayOverlay={false}
                             />
                         </div>
-                        <TitleInfo title={movieDetail} />
+                        <TitleInfo
+                            title={movieDetail}
+                            isUnvailableWatch={isUnvailableWatch}
+                        />
                     </div>
                 </div>
             </section>

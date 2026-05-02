@@ -5,9 +5,21 @@ import styles from "./WatchTitleButton.module.scss";
 
 interface Props {
     id: number;
+    disabled?: boolean;
 }
 
-export const WatchTitleButton = ({ id }: Props) => {
+export const WatchTitleButton = ({ id, disabled }: Props) => {
+    if (disabled)
+        return (
+            <button
+                type="button"
+                className={`${styles.playButton} ${styles.unvailableButton}`}
+                disabled
+            >
+                К сожалению не доступно
+            </button>
+        );
+
     return (
         <Link to={routePaths.watch(id)} className={styles.playButton}>
             <img src={playBtn} alt="" width={20} height={20} />

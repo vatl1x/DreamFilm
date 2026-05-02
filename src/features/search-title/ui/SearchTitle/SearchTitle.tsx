@@ -63,6 +63,7 @@ export const SearchTitle = () => {
                 <SearchDropdown
                     results={results}
                     onClose={() => setIsOpen(false)}
+                    clearInput={() => setQuery("")}
                 />
             </Dropdown>
         </div>

@@ -6,9 +6,10 @@ import styles from "./SearchDropdown.module.scss";
 interface Props {
     results: TitleSearch[];
     onClose: () => void;
+    clearInput: () => void;
 }
 
-export const SearchDropdown = ({ results, onClose }: Props) => {
+export const SearchDropdown = ({ results, onClose, clearInput }: Props) => {
     return (
         <div className={styles.popover}>
             <h3 className={styles.popoverTitle}>Результаты поиска</h3>
@@ -20,7 +21,10 @@ export const SearchDropdown = ({ results, onClose }: Props) => {
                             <Link
                                 to={routePaths.title(filmId)}
                                 className={styles.resultButton}
-                                onClick={onClose}
+                                onClick={() => {
+                                    onClose();
+                                    clearInput();
+                                }}
                             >
                                 <div className={styles.posterWrap}>
                                     <img

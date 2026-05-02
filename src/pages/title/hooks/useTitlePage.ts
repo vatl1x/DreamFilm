@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useGetMovieByIdQuery, useGetMovieImagesQuery } from "@/entities/title";
+import { useGetMovieIframeQuery } from "@/entities/watch-title";
 
 export const useTitlePage = () => {
     const { id } = useParams();
@@ -13,10 +14,13 @@ export const useTitlePage = () => {
 
     const { data: movieImages } = useGetMovieImagesQuery(numberId);
 
+    const { isError: isUnvailableWatch } = useGetMovieIframeQuery(numberId);
+
     return {
         movieDetail,
         movieImages: movieImages?.items ?? [],
         isLoading,
         isError,
+        isUnvailableWatch,
     };
 };

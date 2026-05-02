@@ -48,3 +48,15 @@
         transform: scale(0.98);
     }
 }
+
+.unvailableButton {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+        background: var(--color-light);
+        color: #050505;
+        transform: none;
+        box-shadow: 0 20px 50px rgba(255, 255, 255, 0.05);
+    }
+}

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { WatchTitleButton } from "@/features/watch-title";
 import { Title } from "@/entities/title/model/types";
 import { routePaths } from "@/shared/config/routePaths";
 import addFavoriteBtn from "@/shared/assets/icons/plus.svg";
@@ -63,9 +64,9 @@ export const HeroBanner = ({ title }: Props) => {
             <p className={styles.descriptionTitle}>{description}</p>
 
             <ul className={styles.actionsButtons}>
-                {/* <li>
-                    <WatchTitleButton id={1} />
-                </li> */}
+                <li>
+                    <WatchTitleButton id={kinopoiskId} />
+                </li>
                 <li>
                     <Link
                         to={routePaths.title(kinopoiskId)}
