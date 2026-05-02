@@ -25,7 +25,7 @@ export const HeroBanner = ({ title }: Props) => {
         description,
         coverUrl,
     } = title;
-    
+
     return (
         <section
             className={styles.heroBanner}
@@ -41,22 +41,23 @@ export const HeroBanner = ({ title }: Props) => {
             <h1 className={styles.filmsName}>{nameRu}</h1>
 
             <ul className={styles.dataTablets}>
-                <li>
-                    {ratingKinopoisk !== null && (
+                {ratingKinopoisk !== null && (
+                    <li>
                         <Pill variant={getRatingVariant(ratingKinopoisk)}>
-                            {ratingKinopoisk} KP
+                            {ratingKinopoisk.toFixed(1)} KP
                         </Pill>
-                    )}
-                </li>
+                    </li>
+                )}
+
                 <li>
                     <Pill>{year}</Pill>
                 </li>
-                <li>
-                    <Pill>
-                        {ratingAgeLimits &&
-                            `${ratingAgeLimits.replace("age", "")}+`}
-                    </Pill>
-                </li>
+
+                {ratingAgeLimits && (
+                    <li>
+                        <Pill>{`${ratingAgeLimits.replace("age", "")}+`}</Pill>
+                    </li>
+                )}
             </ul>
 
             <p className={styles.descriptionTitle}>{description}</p>

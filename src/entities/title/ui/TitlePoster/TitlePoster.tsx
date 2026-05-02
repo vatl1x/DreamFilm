@@ -35,7 +35,7 @@ export const TitlePoster = ({
                     variant={getRatingVariant(rating)}
                     className={styles.rating}
                 >
-                    {rating}
+                    {rating.toFixed(1)}
                 </Pill>
             )}
 

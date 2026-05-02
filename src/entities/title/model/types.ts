@@ -3,12 +3,8 @@ export interface Title {
     nameRu: string;
     nameEn: string | null;
     nameOriginal: string;
-    countries: {
-        country: string;
-    }[];
-    genres: {
-        genre: string;
-    }[];
+    countries: Country[];
+    genres: Genre[];
     ratingKinopoisk: number | null;
     ratingImdb: number | null;
     year: number;
@@ -40,10 +36,24 @@ export interface TitleDetail {
     // type: string;
     ratingAgeLimits: string | null;
     countries: { country: string }[];
-    genres: {
-        genre: string;
-    }[];
+    genres: Genre[];
     shortDescription: string;
+}
+
+export interface TitleSearch {
+    filmId: number;
+    nameRu: string;
+    year: string;
+    rating: string | null;
+    genres: Genre[];
+    posterUrl: string;
+}
+
+export interface TitleSearchResponse {
+    keyword: string;
+    pagesCount: number;
+    searchFilmsCountResult: number;
+    films: TitleSearch[];
 }
 
 export interface TitleImage {
@@ -66,3 +76,11 @@ export const CollectionType = {
 
 export type CollectionType =
     (typeof CollectionType)[keyof typeof CollectionType];
+
+export interface Genre {
+    genre: string;
+}
+
+export interface Country {
+    country: string;
+}

@@ -1,1 +1,1 @@
-export { SearchTitle } from "./ui/SearchTitle";
+export { SearchTitle } from "./ui/SearchTitle/SearchTitle";
