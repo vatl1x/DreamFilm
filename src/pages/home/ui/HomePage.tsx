@@ -2,8 +2,9 @@ import { HeroBanner } from "@/widgets/featuredFilm";
 import { MediaRail } from "@/widgets/mediaRail";
 import { useGetMoviesQuery } from "@/entities/title";
 import { CollectionType } from "@/entities/title";
-import styles from "./HomePage.module.scss";
+import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useFeaturedTitle } from "../model/hooks/useFeaturedTitle";
+import styles from "./HomePage.module.scss";
 
 export const HomePage = () => {
     const { data: popularMovies } = useGetMoviesQuery(
@@ -25,13 +26,14 @@ export const HomePage = () => {
     const isLoadedTitles = !!popularMovies && !!popularSeries && !!topMovies;
     const featuredTitle = useFeaturedTitle(isLoadedTitles ? allTitles : []);
 
+    useScrollToTop();
+
     return (
         <div className={styles.page}>
             <div className="container">
                 <div className={styles.layout}>
-
                     {/* СЮДЫ НАВРЕНОЕ СКЕЛЕТОН */}
-                    
+
                     {featuredTitle && <HeroBanner title={featuredTitle} />}
                     <MediaRail
                         label="Популярные фильмы"
