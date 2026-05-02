@@ -6,4 +6,5 @@ export {
     useGetMovieByIdQuery,
     useGetMoviesQuery,
     useGetMovieImagesQuery,
+    useGetMoviesByKeywordsQuery,
 } from "./api/titlesApi";
