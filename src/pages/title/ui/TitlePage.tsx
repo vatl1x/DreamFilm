@@ -4,6 +4,7 @@ import { useTitlePage } from "../hooks/useTitlePage";
 import styles from "./TitlePage.module.scss";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useParams } from "react-router";
+import { BackButton } from "@/shared/ui/BackButton/BackButton";
 
 export const TitlePage = () => {
     const { id } = useParams();
@@ -22,6 +23,9 @@ export const TitlePage = () => {
                 style={{ backgroundImage: `url(${coverUrl ?? posterUrl})` }}
             >
                 <div className="container">
+                    <div className={styles.backButtonWrap}>
+                        <BackButton />
+                    </div>
                     <div className={styles.heroContent}>
                         <div className={styles.posterColumn}>
                             <TitlePoster
