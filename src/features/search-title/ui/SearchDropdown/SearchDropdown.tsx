@@ -44,7 +44,7 @@ export const SearchDropdown = ({ results, onClose, clearInput }: Props) => {
                                         {nameRu}
                                     </span>
                                     <span className={styles.resultMeta}>
-                                        {`${year} ${"\u2022"} ${genres.map((g) => g.genre).join(", ")}`}
+                                        {`${year !== "null" ? `${year} ${"\u2022"} ` : ""}${genres.map((g) => g.genre).join(", ")}`}
                                     </span>
                                 </div>
                             </Link>

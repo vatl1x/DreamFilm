@@ -18,8 +18,8 @@ export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
             </div>
 
             <div className={styles.metaList}>
-                <Pill>{title.year}</Pill>
-                <Pill>{title.filmLength} мин</Pill>
+                {title.year && <Pill>{title.year}</Pill>}
+                {title.filmLength && <Pill>{title.filmLength} мин</Pill>}
                 <Pill>{title.countries.map((c) => c.country).join(", ")}</Pill>
                 {title.ratingAgeLimits && (
                     <Pill>{`${title.ratingAgeLimits.replace("age", "")}+`}</Pill>
@@ -51,7 +51,10 @@ export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
             )}
 
             <div className={styles.actions}>
-                <WatchTitleButton id={title.kinopoiskId} disabled={isUnvailableWatch}/>
+                <WatchTitleButton
+                    id={title.kinopoiskId}
+                    disabled={isUnvailableWatch}
+                />
                 <AddToFavoritesButton />
             </div>
         </div>

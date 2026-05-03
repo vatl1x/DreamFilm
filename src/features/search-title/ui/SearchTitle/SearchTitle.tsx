@@ -11,7 +11,7 @@ export const SearchTitle = () => {
 
     const {
         isOpen,
-        isLoading,
+        // isLoading,
         query,
         results,
         shouldShowDropdown,

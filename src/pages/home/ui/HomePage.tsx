@@ -1,21 +1,31 @@
-import { HeroBanner } from "@/widgets/featuredFilm";
+import { HeroBanner, HeroBannerSkeleton } from "@/widgets/featuredFilm";
 import { MediaRail } from "@/widgets/mediaRail";
 import { useGetMoviesQuery } from "@/entities/title";
 import { CollectionType } from "@/entities/title";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useFeaturedTitle } from "../model/hooks/useFeaturedTitle";
 import styles from "./HomePage.module.scss";
+import { withSkeleton } from "@/shared/lib/hocs/withSkeleton";
+import { MediaRailSkeleton } from "@/widgets/mediaRail/ui/MediaRailSkeleton";
+
+const MediaRailWithSkeleton = withSkeleton(MediaRail, MediaRailSkeleton);
 
 export const HomePage = () => {
-    const { data: popularMovies } = useGetMoviesQuery(
-        CollectionType.POPULAR_MOVIES,
-    );
-    const { data: popularSeries } = useGetMoviesQuery(
-        CollectionType.POPULAR_SERIES,
-    );
-    const { data: topMovies } = useGetMoviesQuery(
-        CollectionType.TOP_250_MOVIES,
-    );
+    const { data: popularMovies, isLoading: isLoadingMovies } =
+        useGetMoviesQuery({
+            collection: CollectionType.POPULAR_MOVIES,
+            page: 1,
+        });
+    const { data: popularSeries, isLoading: isLoadingShows } =
+        useGetMoviesQuery({
+            collection: CollectionType.POPULAR_SERIES,
+            page: 1,
+        });
+    const { data: topMovies, isLoading: isLoadingTop } = useGetMoviesQuery({
+        collection: CollectionType.TOP_250_MOVIES,
+        page: 1,
+    });
+    const isLoading = isLoadingMovies || isLoadingShows || isLoadingTop;
 
     const allTitles = [
         ...(popularMovies?.items ?? []),
@@ -34,16 +44,29 @@ export const HomePage = () => {
                 <div className={styles.layout}>
                     {/* СЮДЫ НАВРЕНОЕ СКЕЛЕТОН */}
 
-                    {featuredTitle && <HeroBanner title={featuredTitle} />}
-                    <MediaRail
+                    {isLoading ? (
+                        <HeroBannerSkeleton />
+                    ) : (
+                        featuredTitle && <HeroBanner title={featuredTitle} />
+                    )}
+                    <MediaRailWithSkeleton
+                        isLoading={isLoading}
                         label="Популярные фильмы"
                         data={popularMovies?.items ?? []}
+                        collectionType={CollectionType.POPULAR_MOVIES}
                     />
-                    {/* <MediaRail
+                    <MediaRailWithSkeleton
+                        isLoading={isLoading}
                         label="Популярные сериалы"
                         data={popularSeries?.items ?? []}
+                        collectionType={CollectionType.POPULAR_SERIES}
                     />
-                    <MediaRail label="Топ 250" data={topMovies?.items ?? []} /> */}
+                    <MediaRailWithSkeleton
+                        isLoading={isLoading}
+                        label="Топ 250"
+                        data={topMovies?.items ?? []}
+                        collectionType={CollectionType.TOP_250_MOVIES}
+                    />
                 </div>
             </div>
         </div>
