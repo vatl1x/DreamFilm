@@ -14,7 +14,7 @@ export const Logo = ({ withLink = true }: Props) => {
     return (
         <>
             {withLink ? (
-                <Link to="/" className={styles.logo}>
+                <Link to="/" className={`${styles.logo} ${styles.logoLink}`}>
                     {content}
                 </Link>
             ) : (

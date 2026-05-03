@@ -6,9 +6,10 @@ import styles from "./TitleInfo.module.scss";
 
 interface Props {
     title: TitleDetail;
+    isUnvailableWatch?: boolean;
 }
 
-export const TitleInfo = ({ title }: Props) => {
+export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
     return (
         <div className={styles.infoColumn}>
             <div className={styles.headBlock}>
@@ -50,7 +51,7 @@ export const TitleInfo = ({ title }: Props) => {
             )}
 
             <div className={styles.actions}>
-                <WatchTitleButton id={title.kinopoiskId} />
+                <WatchTitleButton id={title.kinopoiskId} disabled={isUnvailableWatch}/>
                 <AddToFavoritesButton />
             </div>
         </div>

@@ -35,6 +35,11 @@
         );
     z-index: 0;
 }
+.backButtonWrap {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+}
 
 .heroContent {
     position: relative;

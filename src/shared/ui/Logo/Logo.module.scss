@@ -8,8 +8,29 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     color: var(--color-light);
+    font-family: "Unbounded", sans-serif;
+}
+
+.logoLink {
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.6;
+    }
 }
 
 .redText {
     color: var(--logo-color);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
 }

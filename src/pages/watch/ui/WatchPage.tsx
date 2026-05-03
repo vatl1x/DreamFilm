@@ -1,6 +1,31 @@
+import { useGetMovieIframeQuery } from "@/entities/watch-title";
+import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
+import { BackButton } from "@/shared/ui/BackButton/BackButton";
+import { useParams } from "react-router";
+import styles from "./WatchPage.module.scss";
 
 export const WatchPage = () => {
-  return (
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quidem neque deserunt amet provident totam error doloribus incidunt, reiciendis tenetur perspiciatis alias, ipsum quaerat ea temporibus placeat perferendis soluta, esse molestiae vero accusantium dignissimos sunt? Sequi rerum optio iusto tenetur sapiente omnis cupiditate architecto saepe quisquam ipsa! Reprehenderit error unde repudiandae, maxime illum sequi sapiente est sit adipisci earum nam dolore. Ipsa aliquam sunt vero molestiae voluptas omnis ea animi quae obcaecati saepe quas, itaque, temporibus nulla pariatur quidem, porro sint commodi? Harum molestias commodi, porro alias quae quia unde omnis illo in odit vel exercitationem consequuntur quisquam quidem blanditiis!</div>
-  )
-}
+    const { id } = useParams();
+    useScrollToTop(id);
+
+    const { data, isLoading, isError } = useGetMovieIframeQuery(Number(id));
+
+    if (isLoading) return <div>Загрузка...</div>;
+    if (isError || !data) return <div>Видео недоступно</div>;
+
+    return (
+        <div className={styles.page}>
+            <div className="container">
+                <div className={styles.header}>
+                    <BackButton />
+                    <h1 className={styles.title}>
+                        {`${data?.title} (${data?.year})`}
+                    </h1>
+                </div>
+                <div className={styles.playerWrap}>
+                    <iframe src={data?.iframeUrl} className={styles.player} />
+                </div>
+            </div>
+        </div>
+    );
+};

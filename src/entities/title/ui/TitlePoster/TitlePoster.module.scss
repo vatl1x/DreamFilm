@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    // border: 1px solid transparent;
+    isolation: isolate;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: #111113;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
@@ -44,7 +44,7 @@
     position: absolute;
     top: 14px;
     right: 14px;
-        z-index: 1;
+    z-index: 1;
 
     background: rgba(23, 20, 19, 0.92);
     backdrop-filter: blur(8px);
@@ -77,4 +77,18 @@
 .playBadge img {
     display: block;
     filter: brightness(0) invert(1);
+}
+
+.posterWrap:hover .filmImage {
+    transform: scale(1.08);
+    filter: brightness(0.72);
+}
+
+.posterWrap:hover .playOverlay {
+    opacity: 1;
+}
+
+.posterWrap:hover {
+    border-color: rgba(229, 8, 21, 0.45);
+    box-shadow: 0 0 0 1px rgba(229, 8, 21, 0.12);
 }

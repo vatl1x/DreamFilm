@@ -1,16 +1,19 @@
-import { useRouteError } from "react-router";
+import { Link, useRouteError } from "react-router";
 import styles from "./ErrorPage.module.scss";
 
 export const ErrorPage = () => {
     const error = useRouteError() as Error;
+
     return (
-        <div className="container">
-            <div className={styles.layout}>
-                <h2 className={styles.errorTitle}>Ой, что-то сломалось</h2>
-                <p className={styles.errorMessage}>
-                    {error.message || "Неизвестная ошибка"}
-                </p>
-            </div>
+        <div className={styles.layout}>
+            <span className={styles.errorCode}>404</span>
+            <h2 className={styles.errorTitle}>Ой, что-то сломалось</h2>
+            <p className={styles.errorMessage}>
+                {error?.message || "Уже стараемся починить"}
+            </p>
+            <Link to="/" className={styles.backLink}>
+                На главную
+            </Link>
         </div>
     );
 };
