@@ -1,3 +1,5 @@
+import { CollectionType } from "./constants";
+
 export interface Title {
     kinopoiskId: number;
     nameRu: string;
@@ -21,6 +23,11 @@ export interface TitlesResponse {
     total: number;
     totalPages: number;
     items: Title[];
+}
+
+export interface TitlesParams {
+    collection: CollectionType;
+    page: number;
 }
 
 export interface TitleDetail {
@@ -67,12 +74,7 @@ export interface TitleImageResponse {
     items: TitleImage[];
 }
 
-export const CollectionType = {
-    POPULAR_MOVIES: "TOP_POPULAR_MOVIES",
-    POPULAR_SERIES: "POPULAR_SERIES",
-    TOP_250_MOVIES: "TOP_250_MOVIES",
-    TOP_250_SERIES: "TOP_250_TV_SHOWS",
-} as const;
+
 
 export type CollectionType =
     (typeof CollectionType)[keyof typeof CollectionType];

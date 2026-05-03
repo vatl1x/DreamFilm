@@ -1,6 +1,6 @@
 import { ImageGallery } from "@/widgets/imageGallery";
 import { TitlePoster, TitleInfo } from "@/entities/title";
-import { useTitlePage } from "../hooks/useTitlePage";
+import { useTitlePage } from "../model/hooks/useTitlePage";
 import styles from "./TitlePage.module.scss";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useParams } from "react-router";

@@ -37,7 +37,7 @@ export const TitleCard = ({
                 <h3 className={styles.title}>{nameRu}</h3>
                 <p
                     className={styles.description}
-                >{`${year} ${"\u2022"} ${genres.map((g) => g.genre).join(", ")}`}</p>
+                >{`${year ? `${year} ${"\u2022"} ` : ""}${genres.map((g) => g.genre).join(", ")}`}</p>
             </div>
         </Link>
     );

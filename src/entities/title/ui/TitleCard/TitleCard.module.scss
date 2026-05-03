@@ -8,8 +8,6 @@
     cursor: pointer;
 }
 
-
-
 .filmInfo {
     display: flex;
     flex-direction: column;
@@ -32,20 +30,6 @@
     color: var(--description-color);
     font-size: 14px;
     line-height: 1.2;
-}
-
-.card:hover .posterWrap {
-    border-color: rgba(229, 8, 21, 0.45);
-    box-shadow: 0 0 0 1px rgba(229, 8, 21, 0.12);
-}
-
-.card:hover .filmImage {
-    transform: scale(1.08);
-    filter: brightness(0.72);
-}
-
-.card:hover .playOverlay {
-    opacity: 1;
 }
 
 .card:hover .title {

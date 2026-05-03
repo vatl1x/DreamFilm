@@ -1,20 +1,20 @@
 import { baseApi } from "@/shared/api/baseApi";
 import {
     TitlesResponse,
-    CollectionType,
     TitleDetail,
     TitleImageResponse,
     TitleSearchResponse,
+    TitlesParams,
 } from "../model/types";
 
 export const titlesApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getMovies: builder.query<TitlesResponse, CollectionType>({
-            query: (collection) => ({
+        getMovies: builder.query<TitlesResponse, TitlesParams>({
+            query: ({ collection, page }) => ({
                 url: "/v2.2/films/collections",
                 params: {
                     type: collection,
-                    page: 1,
+                    page,
                 },
             }),
         }),

@@ -1,15 +1,17 @@
 import { Link } from "react-router";
 import { TitleCard } from "@/entities/title";
-import { Title } from "@/entities/title/model/types";
+import { CollectionType, Title } from "@/entities/title/model/types";
 import { useScrollControls } from "@/shared/lib/hooks/useScrollControls";
 import ArrowIcon from "@/shared/assets/icons/arrow-left.svg?react";
 import styles from "./MediaRail.module.scss";
+import { routePaths } from "@/shared/config/routePaths";
 
 interface Props {
     label: string;
     data: Title[];
+    collectionType: CollectionType;
 }
-export const MediaRail = ({ label, data }: Props) => {
+export const MediaRail = ({ label, data, collectionType }: Props) => {
     const {
         ref,
         canScrollLeft,
@@ -24,7 +26,10 @@ export const MediaRail = ({ label, data }: Props) => {
             <div className={styles.railHeader}>
                 <h2 className={styles.railLabel}>{label}</h2>
 
-                <Link to="hz poka" className={styles.viewAllLink}>
+                <Link
+                    to={routePaths.collection(collectionType)}
+                    className={styles.viewAllLink}
+                >
                     <span>Смотреть все</span>
                     <span className={styles.viewAllArrow}>
                         <ArrowIcon width={15} height={15} />

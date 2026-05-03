@@ -25,6 +25,14 @@ export const router = createBrowserRouter([
                     return { Component: WatchPage };
                 },
             },
+            {
+                path: PATHS.COLLECTION,
+                lazy: async () => {
+                    const { CollectionPage } =
+                        await import("@/pages/collection");
+                    return { Component: CollectionPage };
+                },
+            },
             // ,
             // {
             //     path: '/AuthPage',
