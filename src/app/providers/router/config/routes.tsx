@@ -33,6 +33,13 @@ export const router = createBrowserRouter([
                     return { Component: CollectionPage };
                 },
             },
+            {
+                path: PATHS.FAVORITES,
+                lazy: async () => {
+                    const { FavoritesPage } = await import("@/pages/favorites");
+                    return { Component: FavoritesPage };
+                },
+            },
             // ,
             // {
             //     path: '/AuthPage',
@@ -41,17 +48,6 @@ export const router = createBrowserRouter([
             //     }
             // },
             // {
-            //     path: '/MovieDetailsPage',
-            //     lazy: async ()=>{
-            //         const {}
-            //     }
-            // },
-            // {
-            //     path: '/WathPage',
-            //     lazy: async ()=>{
-            //         const {}
-            //     }
-            // },{
             //     path: '/SettingsPage',
             //     lazy: async ()=>{
             //         const {}
