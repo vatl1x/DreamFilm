@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useGetMoviesByKeywordsQuery } from "@/entities/title";
 import { useClickOutside } from "@/shared/lib/hooks/useClickOutside";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
@@ -10,17 +10,31 @@ export const useSearchTitle = () => {
 
     const debouncedQuery = useDebounce(query, 500);
 
-    const { data, isLoading } = useGetMoviesByKeywordsQuery(debouncedQuery, {
-        skip: !debouncedQuery.trim(),
-    });
+    const { data, isLoading, isFetching } = useGetMoviesByKeywordsQuery(
+        debouncedQuery,
+        {
+            skip: !debouncedQuery.trim(),
+        },
+    );
 
-    const results = data?.films ?? [];
+    const results =
+        query.trim() && query === debouncedQuery && !isFetching
+            ? (data?.films ?? [])
+            : [];
 
     const shouldShowDropdown =
         isOpen && query.trim().length > 0 && results.length > 0;
-    useClickOutside(searchRef, isOpen ? () => setIsOpen(false) : undefined);
 
-    const handleOpenSearch = (ref: React.RefObject<HTMLInputElement | null>) => {
+    const handleClose = useCallback(() => {
+        setIsOpen(false);
+        setQuery("");
+    }, []);
+
+    useClickOutside(searchRef, isOpen ? handleClose : undefined);
+
+    const handleOpenSearch = (
+        ref: React.RefObject<HTMLInputElement | null>,
+    ) => {
         setIsOpen(true);
         setTimeout(() => ref.current?.focus(), 50);
     };
@@ -34,6 +48,7 @@ export const useSearchTitle = () => {
         searchRef,
         setIsOpen,
         setQuery,
+        handleClose,
         handleOpenSearch,
     };
 };
