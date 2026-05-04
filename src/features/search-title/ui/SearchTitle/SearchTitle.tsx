@@ -16,8 +16,8 @@ export const SearchTitle = () => {
         results,
         shouldShowDropdown,
         searchRef,
-        setIsOpen,
         setQuery,
+        handleClose,
         handleOpenSearch,
     } = useSearchTitle();
 
@@ -60,11 +60,7 @@ export const SearchTitle = () => {
             </div>
 
             <Dropdown isOpen={shouldShowDropdown}>
-                <SearchDropdown
-                    results={results}
-                    onClose={() => setIsOpen(false)}
-                    clearInput={() => setQuery("")}
-                />
+                <SearchDropdown results={results} onClose={handleClose} />
             </Dropdown>
         </div>
     );
