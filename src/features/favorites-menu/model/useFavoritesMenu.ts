@@ -18,5 +18,5 @@ export const useFavoritesMenu = () => {
         dispatch(removeFavorite(id));
     };
 
-    return { favorites, isOpen, toggle, menuRef, handleRemove };
+    return { favorites, isOpen, toggle, close, menuRef, handleRemove };
 };
