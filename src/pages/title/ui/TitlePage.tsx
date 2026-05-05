@@ -21,8 +21,11 @@ export const TitlePage = () => {
         <div className={styles.page}>
             <section
                 className={styles.hero}
-                style={{ backgroundImage: `url(${coverUrl ?? posterUrl})` }}
             >
+                <div
+                    className={styles.heroBg}
+                    style={{ backgroundImage: `url(${coverUrl ?? posterUrl})` }}
+                />
                 <div className="container">
                     <div className={styles.backButtonWrap}>
                         <BackButton />
