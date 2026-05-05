@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { useAppSelector } from "@/app/providers/store/config/hooks";
 import { selectFavorites } from "@/entities/favorites";
 import { TitleCard } from "@/entities/title";
@@ -5,6 +6,7 @@ import styles from "./FavoritesPage.module.scss";
 
 export const FavoritesPage = () => {
     const favorites = useAppSelector(selectFavorites);
+    const navigate = useNavigate();
 
     return (
         <div className={styles.page}>
@@ -15,6 +17,13 @@ export const FavoritesPage = () => {
                         <h2 className={styles.emptyMessage}>
                             Вы пока ничего не добавили
                         </h2>
+                        <button
+                            type="button"
+                            onClick={() => navigate(-1)}
+                            className={styles.backwardButton}
+                        >
+                            Назад
+                        </button>
                     </div>
                 ) : (
                     <>
