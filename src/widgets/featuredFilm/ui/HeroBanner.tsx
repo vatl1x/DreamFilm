@@ -50,9 +50,11 @@ export const HeroBanner = ({ title }: Props) => {
                     </li>
                 )}
 
-                <li>
-                    <Pill>{year}</Pill>
-                </li>
+                {year !== null && (
+                    <li>
+                        <Pill>{year}</Pill>
+                    </li>
+                )}
 
                 {ratingAgeLimits && (
                     <li>

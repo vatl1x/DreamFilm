@@ -58,6 +58,21 @@
     margin: 0;
 }
 
+.backwardButton {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 15px;
+    background-color: rgba(229, 9, 20, 0.25);
+    padding: 15px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: #e50914;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
