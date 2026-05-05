@@ -23,7 +23,7 @@ export const WatchPage = () => {
                     </h1>
                 </div>
                 <div className={styles.playerWrap}>
-                    <iframe src={data?.iframeUrl} className={styles.player} />
+                    <iframe src={data?.iframeUrl} className={styles.player} allowFullScreen/>
                 </div>
             </div>
         </div>

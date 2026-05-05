@@ -5,6 +5,7 @@ export const PATHS = {
     TITLE: "title/:id",
     WATCH: "watch/:id",
     COLLECTION: "collection/:collection",
+    FAVORITES: "favorites",
 } as const;
 
 export const routePaths = {

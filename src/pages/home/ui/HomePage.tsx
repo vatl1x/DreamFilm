@@ -42,7 +42,6 @@ export const HomePage = () => {
         <div className={styles.page}>
             <div className="container">
                 <div className={styles.layout}>
-                    {/* СЮДЫ НАВРЕНОЕ СКЕЛЕТОН */}
 
                     {isLoading ? (
                         <HeroBannerSkeleton />

@@ -2,11 +2,11 @@ import { Link } from "react-router";
 import { WatchTitleButton } from "@/features/watch-title";
 import { Title } from "@/entities/title/model/types";
 import { routePaths } from "@/shared/config/routePaths";
-import addFavoriteBtn from "@/shared/assets/icons/plus.svg";
 import { Pill } from "@/shared/ui/Pill/Pill";
 import { getRatingVariant } from "@/shared/lib/helpers/getRatingVariant";
 import detailBtn from "@/shared/assets/icons/info.svg";
 import styles from "./HeroBanner.module.scss";
+import { AddToFavoritesButton } from "@/features/add-to-favorite";
 
 interface Props {
     title: Title;
@@ -77,14 +77,7 @@ export const HeroBanner = ({ title }: Props) => {
                     </Link>
                 </li>
                 <li>
-                    <button className={styles.addFavoriteButton}>
-                        <img
-                            src={addFavoriteBtn}
-                            alt="В избранное"
-                            width={30}
-                            height={30}
-                        />
-                    </button>
+                    <AddToFavoritesButton title={title} />
                 </li>
             </ul>
         </section>

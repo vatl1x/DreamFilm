@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "@/app/providers/store/config/hooks";
+import {
+    addFavorite,
+    removeFavorite,
+    selectIsFavorite,
+} from "@/entities/favorites";
+import { Title, TitleDetail } from "@/entities/title/model/types";
 import plusBtn from "@/shared/assets/icons/plus.svg";
 import checkmarkBtn from "@/shared/assets/icons/checkmark.svg";
 import styles from "./AddToFavoritesButton.module.scss";
 
-export const AddToFavoritesButton = () => {
-    const [isAdded, setIsAdded] = useState(false);
+interface Props {
+    title: Title | TitleDetail;
+}
+
+export const AddToFavoritesButton = ({ title }: Props) => {
+    const dispatch = useDispatch();
+    const isAdded = useAppSelector(selectIsFavorite(title.kinopoiskId));
 
     return (
         <button
@@ -12,7 +24,13 @@ export const AddToFavoritesButton = () => {
             className={`${styles.iconButton} ${
                 isAdded ? styles.iconButtonActive : ""
             }`}
-            onClick={() => setIsAdded((prev) => !prev)}
+            onClick={() => {
+                if (isAdded) {
+                    dispatch(removeFavorite(title.kinopoiskId));
+                } else {
+                    dispatch(addFavorite(title));
+                }
+            }}
             aria-label={
                 isAdded ? "Удалить из избранного" : "Добавить в избранное"
             }

@@ -55,7 +55,7 @@ export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
                     id={title.kinopoiskId}
                     disabled={isUnvailableWatch}
                 />
-                <AddToFavoritesButton />
+                <AddToFavoritesButton title={title}/>
             </div>
         </div>
     );
