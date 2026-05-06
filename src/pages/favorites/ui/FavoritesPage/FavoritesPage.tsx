@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import { useAppSelector } from "@/app/providers/store/config/hooks";
-import { selectFavorites } from "@/entities/favorites";
+import { useFavorites } from "@/features/favorites-menu";
 import { TitleCard } from "@/entities/title";
 import styles from "./FavoritesPage.module.scss";
 
 export const FavoritesPage = () => {
-    const favorites = useAppSelector(selectFavorites);
+    const { favorites, remove } = useFavorites();
+
     const navigate = useNavigate();
 
     return (
@@ -35,8 +35,20 @@ export const FavoritesPage = () => {
                         </h2>
                         <ul className={styles.grid}>
                             {favorites.map((title) => (
-                                <li key={title.kinopoiskId}>
+                                <li
+                                    className={styles.gridItem}
+                                    key={title.kinopoiskId}
+                                >
                                     <TitleCard {...title} />
+
+                                    <button
+                                        className={styles.removeButton}
+                                        onClick={() =>
+                                            remove(title.kinopoiskId)
+                                        }
+                                    >
+                                        Удалить
+                                    </button>
                                 </li>
                             ))}
                         </ul>

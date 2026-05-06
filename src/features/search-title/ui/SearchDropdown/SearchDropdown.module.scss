@@ -124,4 +124,8 @@
     .resultMeta {
         font-size: 13px;
     }
+    //чтоб кнопка удалить на мобилке не исчезала
+    .deleteButton {
+        opacity: 1;
+    }
 }
