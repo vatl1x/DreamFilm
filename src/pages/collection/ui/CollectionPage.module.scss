@@ -28,6 +28,12 @@
     width: 100%;
 }
 
+.dumplingLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1280px) {
     .collectionList {
         grid-template-columns: repeat(4, 1fr);

@@ -9,7 +9,7 @@ import styles from "./FavoritesMenu.module.scss";
 import { useFavoritesMenu } from "../model/useFavoritesMenu";
 
 export const FavoritesMenu = () => {
-    const { favorites, isOpen, toggle, menuRef, handleRemove } =
+    const { favorites, isOpen, toggle, close, menuRef, handleRemove } =
         useFavoritesMenu();
 
     return (
@@ -40,6 +40,7 @@ export const FavoritesMenu = () => {
                                     <Link
                                         to={routePaths.title(item.kinopoiskId)}
                                         className={styles.itemLink}
+                                        onClick={close}
                                     >
                                         <div className={styles.posterWrap}>
                                             <img
@@ -92,7 +93,11 @@ export const FavoritesMenu = () => {
                     )}
 
                     {favorites.length > 0 && (
-                        <Link to="/favorites" className={styles.viewAllLink}>
+                        <Link
+                            to="/favorites"
+                            className={styles.viewAllLink}
+                            onClick={close}
+                        >
                             Смотреть всё
                         </Link>
                     )}

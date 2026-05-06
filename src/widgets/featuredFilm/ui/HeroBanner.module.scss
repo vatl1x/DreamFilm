@@ -162,8 +162,18 @@
         min-height: auto;
         padding: 48px 24px;
         border-radius: 24px;
+        background-position: center;
+        background-size: cover;
     }
 
+    .heroBanner::before {
+        background: linear-gradient(
+            180deg,
+            rgba(5, 6, 8, 0.2) 0%,
+            rgba(5, 6, 8, 0.8) 100%
+        );
+    }
+    
     .janreName {
         font-size: 11px;
         letter-spacing: 0.28em;
@@ -189,5 +199,29 @@
         padding: 0 22px;
         font-size: 13px;
         border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroBanner {
+        padding: 36px 18px;
+        border-radius: 20px;
+    }
+
+    .filmsName {
+        font-size: 38px;
+        letter-spacing: -0.05em;
+    }
+
+    .descriptionTitle {
+        font-size: 15px;
+        margin-bottom: 32px;
+    }
+
+    .detailButton {
+        min-height: 50px;
+        padding: 0 18px;
+        font-size: 12px;
+        border-radius: 14px;
     }
 }

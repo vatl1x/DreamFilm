@@ -1,0 +1,119 @@
+.infoColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.06) 25%,
+        rgba(255, 255, 255, 0.12) 37%,
+        rgba(255, 255, 255, 0.06) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* ===== head ===== */
+
+.headBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    @extend .skeleton;
+    width: 320px;
+    height: 42px;
+    border-radius: 10px;
+}
+
+.originalTitle {
+    @extend .skeleton;
+    width: 200px;
+    height: 20px;
+}
+
+.metaList {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    @extend .skeleton;
+    width: 80px;
+    height: 30px;
+    border-radius: 999px;
+}
+
+/* ===== genres ===== */
+
+.genresBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sectionLabel {
+    @extend .skeleton;
+    width: 80px;
+    height: 14px;
+}
+
+.genreList {
+    display: flex;
+    gap: 10px;
+}
+
+.descriptionBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.textLine {
+    @extend .skeleton;
+    width: 100%;
+    height: 14px;
+}
+
+.textLineShort {
+    @extend .skeleton;
+    width: 60%;
+    height: 14px;
+}
+
+/* ===== actions ===== */
+
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.watchButton {
+    @extend .skeleton;
+    width: 200px;
+    height: 56px;
+    border-radius: 18px;
+}
+
+.iconButton {
+    @extend .skeleton;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+}

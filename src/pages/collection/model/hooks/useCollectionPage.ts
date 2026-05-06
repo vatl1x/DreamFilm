@@ -36,11 +36,14 @@ export const useCollectionPage = () => {
         onLoadMore: () => setPage((prev) => prev + 1),
         listLength: allTitles.length,
     });
+    const isInitialLoading = isFetching && allTitles.length === 0;
+    const isFetchingMore = isFetching && allTitles.length > 0;
 
     return {
         collection,
         allTitles,
-        isFetching,
         lastItemRef,
+        isInitialLoading,
+        isFetchingMore,
     };
 };

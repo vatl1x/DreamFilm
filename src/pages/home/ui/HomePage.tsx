@@ -6,7 +6,7 @@ import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useFeaturedTitle } from "../model/hooks/useFeaturedTitle";
 import styles from "./HomePage.module.scss";
 import { withSkeleton } from "@/shared/lib/hocs/withSkeleton";
-import { MediaRailSkeleton } from "@/widgets/mediaRail/ui/MediaRailSkeleton";
+import { MediaRailSkeleton } from "@/widgets/mediaRail";
 
 const MediaRailWithSkeleton = withSkeleton(MediaRail, MediaRailSkeleton);
 

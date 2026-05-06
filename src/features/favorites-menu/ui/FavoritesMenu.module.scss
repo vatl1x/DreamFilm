@@ -205,3 +205,30 @@
     color: var(--color-light);
     background: rgba(255, 255, 255, 0.03);
 }
+
+@media (max-width: 768px) {
+    .popover {
+        width: 300px;
+        max-width: calc(100vw - 32px);
+    }
+
+    .itemLink {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .posterWrap {
+        width: 60px;
+        height: 78px;
+    }
+
+    .itemTitle {
+        font-size: 14px;
+    }
+
+    .removeButton {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}

@@ -14,7 +14,7 @@ export const MediaRailSkeleton = () => {
 
             <div className={styles.railShell}>
                 <ul className={styles.mediaList}>
-                    {Array.from({ length: CARDS_COUNT }).map((_, i) => (
+                    {[...Array(CARDS_COUNT)].map((_, i) => (
                         <li key={i} className={styles.mediaItem}>
                             <TitleCardSkeleton />
                         </li>
