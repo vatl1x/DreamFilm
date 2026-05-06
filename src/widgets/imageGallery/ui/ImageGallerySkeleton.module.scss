@@ -1,0 +1,44 @@
+.gallery {
+    margin-top: 40px;
+    margin-inline: 40px;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.06) 25%,
+        rgba(255, 255, 255, 0.12) 37%,
+        rgba(255, 255, 255, 0.06) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: 10px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.title {
+    @extend .skeleton;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.item {
+    @extend .skeleton;
+    width: 220px;
+    height: 130px;
+    border-radius: 12px;
+}

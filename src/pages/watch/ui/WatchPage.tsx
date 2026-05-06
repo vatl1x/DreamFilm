@@ -3,6 +3,7 @@ import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { BackButton } from "@/shared/ui/BackButton/BackButton";
 import { useParams } from "react-router";
 import styles from "./WatchPage.module.scss";
+import { WatchPageSkeleton } from "./WatchPageSkeleton";
 
 export const WatchPage = () => {
     const { id } = useParams();
@@ -10,7 +11,7 @@ export const WatchPage = () => {
 
     const { data, isLoading, isError } = useGetMovieIframeQuery(Number(id));
 
-    if (isLoading) return <div>Загрузка...</div>;
+    if (isLoading) return <WatchPageSkeleton />;
     if (isError || !data) return <div>Видео недоступно</div>;
 
     return (
@@ -23,7 +24,11 @@ export const WatchPage = () => {
                     </h1>
                 </div>
                 <div className={styles.playerWrap}>
-                    <iframe src={data?.iframeUrl} className={styles.player} allowFullScreen/>
+                    <iframe
+                        src={data?.iframeUrl}
+                        className={styles.player}
+                        allowFullScreen
+                    />
                 </div>
             </div>
         </div>

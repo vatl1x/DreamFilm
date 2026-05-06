@@ -26,6 +26,15 @@
     opacity: 0.9;
 }
 
+.titleSkeleton {
+    width: 220px;
+    height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
 .playerWrap {
     position: relative;
     border-radius: 30px;
@@ -45,6 +54,15 @@
     display: block;
 }
 
+.playerSkeleton {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
 @keyframes pulse {
     0%,
     100% {
@@ -60,6 +78,15 @@
             0 32px 80px rgba(0, 0, 0, 0.6),
             0 0 400px rgba(229, 9, 20, 0.35),
             0 0 120px rgba(229, 9, 20, 0.28);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
     }
 }
 
