@@ -7,6 +7,7 @@
     font-weight: 800;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    transition: font-size 0.25s ease;
     color: var(--color-light);
     font-family: "Unbounded", sans-serif;
 }
@@ -19,8 +20,12 @@
     }
 }
 
-.redText {
+.red {
     color: var(--logo-color);
+}
+
+.shortText {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -29,8 +34,15 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
+    .fullText {
+        display: none;
+    }
+
+    .shortText {
+        display: inline;
+    }
     .logo {
-        font-size: 20px;
+        font-size: 30px;
     }
 }

@@ -7,8 +7,12 @@ interface Props {
 export const Logo = ({ withLink = true }: Props) => {
     const content = (
         <>
-            <span className={styles.redText}>Dream</span>
-            <span>Film</span>
+            <span className={`${styles.fullText} ${styles.red}`}>Dream</span>
+            <span className={`${styles.shortText} ${styles.red}`}>D</span>
+
+            <span className={styles.fullText}>Film</span>
+            <span className={styles.shortText}>F</span>
+
         </>
     );
     return (

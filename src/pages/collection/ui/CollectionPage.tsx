@@ -3,7 +3,7 @@ import { CollectionLabel, TitleCard } from "@/entities/title";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useCollectionPage } from "../model/hooks/useCollectionPage";
 import styles from "./CollectionPage.module.scss";
-
+import dumpling from "@/shared/assets/icons/dumpling-loader.svg";
 export const CollectionPage = () => {
     const { collection, allTitles, isFetching, lastItemRef } =
         useCollectionPage();
@@ -32,7 +32,11 @@ export const CollectionPage = () => {
                         </li>
                     ))}
                 </ul>
-                {isFetching && <div>Загрузка</div>}
+                {isFetching && (
+                    <div className={styles.dumplingLoader}>
+                        <img src={dumpling} alt="" width={60} height={60}/>
+                    </div>
+                )}
             </div>
         </div>
     );

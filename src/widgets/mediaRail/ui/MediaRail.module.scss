@@ -205,3 +205,15 @@
         display: none;
     }
 }
+
+@media (max-width: 480px) {
+    .railLabel {
+        font-size: 22px;
+    }
+    .mediaItem {
+        flex-basis: 160px;
+    }
+    .mediaList {
+        gap: 12px;
+    }
+}

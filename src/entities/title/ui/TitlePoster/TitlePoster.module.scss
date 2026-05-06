@@ -79,7 +79,7 @@
     filter: brightness(0) invert(1);
 }
 
-.posterWrap:hover .filmImage {
+.posterWrapCard:hover .filmImage {
     transform: scale(1.08);
     filter: brightness(0.72);
 }
@@ -88,7 +88,7 @@
     opacity: 1;
 }
 
-.posterWrap:hover {
+.posterWrapCard:hover {
     border-color: rgba(229, 8, 21, 0.45);
     box-shadow: 0 0 0 1px rgba(229, 8, 21, 0.12);
 }
