@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { WatchTitleButton } from "@/features/watch-title";
-import { Title } from "@/entities/title/model/types";
+import { Title } from "@/entities/title";
 import { routePaths } from "@/shared/config/routePaths";
 import { Pill } from "@/shared/ui/Pill/Pill";
 import { getRatingVariant } from "@/shared/lib/helpers/getRatingVariant";

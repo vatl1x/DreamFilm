@@ -36,5 +36,5 @@ export const useInfiniteScroll = ({
             observer.observe(lastItemRef.current);
         }
         return () => observer.disconnect();
-    }, [isFetching, page, totalPages, lastItemRef, listLength]);
+    }, [isFetching, page, totalPages, lastItemRef, listLength, onLoadMore]);
 };

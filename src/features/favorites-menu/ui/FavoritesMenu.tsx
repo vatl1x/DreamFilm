@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Dropdown } from "@/shared/ui/Dropdown";
-import { routePaths } from "@/shared/config/routePaths";
-import { NO_POSTER } from "@/entities/title/model/constants";
+import { PATHS, routePaths } from "@/shared/config/routePaths";
+import { NO_POSTER } from "@/entities/title";
 import FavoriteIcon from "@/shared/assets/icons/favorite.svg?react";
 import TrashIcon from "@/shared/assets/icons/trash.svg?react";
 import altImage from "@/shared/assets/icons/no-poster.svg";
@@ -94,7 +94,7 @@ export const FavoritesMenu = () => {
 
                     {favorites.length > 0 && (
                         <Link
-                            to="/favorites"
+                            to={PATHS.FAVORITES}
                             className={styles.viewAllLink}
                             onClick={close}
                         >
