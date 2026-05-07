@@ -46,6 +46,7 @@ export const FavoritesPage = () => {
                                         onClick={() =>
                                             remove(title.kinopoiskId)
                                         }
+                                        type="button"
                                     >
                                         Удалить
                                     </button>

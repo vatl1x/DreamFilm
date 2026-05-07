@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "@/app/providers/store/config/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/providers/store/config/hooks";
 import {
     addFavorite,
     removeFavorite,
@@ -9,21 +8,23 @@ import { Title, TitleDetail } from "@/entities/title/model/types";
 import plusBtn from "@/shared/assets/icons/plus.svg";
 import checkmarkBtn from "@/shared/assets/icons/checkmark.svg";
 import styles from "./AddToFavoritesButton.module.scss";
+import clsx from "clsx";
 
 interface Props {
     title: Title | TitleDetail;
 }
 
 export const AddToFavoritesButton = ({ title }: Props) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isAdded = useAppSelector(selectIsFavorite(title.kinopoiskId));
 
     return (
         <button
             type="button"
-            className={`${styles.iconButton} ${
-                isAdded ? styles.iconButtonActive : ""
-            }`}
+            className={clsx(
+                styles.iconButton,
+                isAdded && styles.iconButtonActive,
+            )}
             onClick={() => {
                 if (isAdded) {
                     dispatch(removeFavorite(title.kinopoiskId));

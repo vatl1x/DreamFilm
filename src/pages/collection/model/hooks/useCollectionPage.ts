@@ -10,10 +10,20 @@ export const useCollectionPage = () => {
     const [allTitles, setAllTitles] = useState<Title[]>([]);
     const lastItemRef = useRef<HTMLLIElement | null>(null);
 
-    const { data, isFetching } = useGetMoviesQuery({
-        collection: collection as CollectionType,
-        page,
-    });
+    const { data, isFetching } = useGetMoviesQuery(
+        {
+            collection: collection as CollectionType,
+            page,
+        },
+        {
+            skip: !collection,
+        },
+    );
+
+    useEffect(() => {
+        setPage(1);
+        setAllTitles([]);
+    }, [collection]);
 
     useEffect(() => {
         if (data?.items) {
@@ -26,7 +36,7 @@ export const useCollectionPage = () => {
                 return [...prev, ...newItems];
             });
         }
-    }, [data]);
+    }, [data?.items]);
 
     useInfiniteScroll({
         lastItemRef,

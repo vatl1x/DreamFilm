@@ -1,4 +1,4 @@
-import { Title } from "@/entities/title/model/types";
+import { Title } from "@/entities/title";
 
 let cachedTitle: Title | null = null;
 

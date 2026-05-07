@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { routePaths } from "@/shared/config/routePaths";
-import { NO_POSTER } from "../../model/constants";
+import { NO_POSTER } from "../..";
 import { Title } from "../../model/types";
 import { TitlePoster } from "../TitlePoster/TitlePoster";
 import styles from "./TitleCard.module.scss";

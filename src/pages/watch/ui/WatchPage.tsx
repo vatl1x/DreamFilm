@@ -20,12 +20,12 @@ export const WatchPage = () => {
                 <div className={styles.header}>
                     <BackButton />
                     <h1 className={styles.title}>
-                        {`${data?.title} (${data?.year})`}
+                        {`${data.title} (${data.year})`}
                     </h1>
                 </div>
                 <div className={styles.playerWrap}>
                     <iframe
-                        src={data?.iframeUrl}
+                        src={data.iframeUrl}
                         className={styles.player}
                         allowFullScreen
                     />
