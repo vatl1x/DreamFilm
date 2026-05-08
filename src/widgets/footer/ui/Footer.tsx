@@ -1,4 +1,4 @@
-import { Logo } from "@/shared/ui/Logo/Logo";
+import { Logo } from "@/shared/ui";
 import { MailIcon, socialItems } from "../constants";
 import styles from "./Footer.module.scss";
 

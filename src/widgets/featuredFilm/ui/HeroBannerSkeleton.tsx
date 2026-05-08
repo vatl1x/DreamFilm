@@ -1,4 +1,4 @@
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { Skeleton } from "@/shared/ui";
 import styles from "./HeroBannerSkeleton.module.scss";
 
 export const HeroBannerSkeleton = () => {

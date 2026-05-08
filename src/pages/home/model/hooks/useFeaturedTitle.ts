@@ -1,12 +1,12 @@
+import { useRef } from "react";
 import { Title } from "@/entities/title";
 
-let cachedTitle: Title | null = null;
-
 export const useFeaturedTitle = (titles: Title[]) => {
-    if (titles.length && !cachedTitle) {
+    const cachedTitle = useRef<Title | null>(null);
+    if (titles.length && !cachedTitle.current) {
         const randomIndex = Math.floor(Math.random() * titles.length);
-        cachedTitle = titles[randomIndex];
+        cachedTitle.current = titles[randomIndex];
     }
 
-    return cachedTitle;
+    return cachedTitle.current;
 };

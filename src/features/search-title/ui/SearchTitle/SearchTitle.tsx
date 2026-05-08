@@ -1,5 +1,5 @@
 import { useSearchTitle } from "../../model/useSearchTitle";
-import { Dropdown } from "@/shared/ui/Dropdown";
+import { Dropdown } from "@/shared/ui";
 import SearchIcon from "@/shared/assets/icons/search.svg?react";
 import CloseIcon from "@/shared/assets/icons/close.svg?react";
 import styles from "./SearchTitle.module.scss";

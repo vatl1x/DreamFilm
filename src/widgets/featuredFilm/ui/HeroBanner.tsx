@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { WatchTitleButton } from "@/features/watch-title";
 import { Title } from "@/entities/title";
 import { routePaths } from "@/shared/config/routePaths";
-import { Pill } from "@/shared/ui/Pill/Pill";
+import { Pill } from "@/shared/ui";
 import { getRatingVariant } from "@/shared/lib/helpers/getRatingVariant";
 import detailBtn from "@/shared/assets/icons/info.svg";
 import styles from "./HeroBanner.module.scss";
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const HeroBanner = ({ title }: Props) => {
-    if (!title) return;
+    if (!title) return null;
 
     const {
         kinopoiskId,

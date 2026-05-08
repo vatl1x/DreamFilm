@@ -40,19 +40,6 @@ export const router = createBrowserRouter([
                     return { Component: FavoritesPage };
                 },
             },
-            // ,
-            // {
-            //     path: '/AuthPage',
-            //     lazy: async ()=>{
-            //         const {}
-            //     }
-            // },
-            // {
-            //     path: '/SettingsPage',
-            //     lazy: async ()=>{
-            //         const {}
-            //     }
-            // }
         ],
     },
 ]);

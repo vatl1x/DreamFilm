@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TitleImage } from "@/entities/title/model/types";
 import { useScrollControls } from "@/shared/lib/hooks/useScrollControls";
-import { ImageViewer } from "@/shared/ui/ImageViewer";
+import { ImageViewer } from "@/shared/ui";
 import ArrowIcon from "@/shared/assets/icons/arrow-left.svg?react";
 import emptyImage from "@/shared/assets/icons/no-poster.svg";
 import styles from "./ImageGallery.module.scss";

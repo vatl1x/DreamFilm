@@ -1,5 +1,5 @@
 import { TitleCardSkeleton } from "@/entities/title";
-import { Skeleton } from "@/shared/ui/Skeleton";
+import { Skeleton } from "@/shared/ui";
 import styles from "./MediaRailSkeleton.module.scss";
 
 const CARDS_COUNT = 7;

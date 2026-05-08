@@ -8,8 +8,10 @@ import {
 } from "@/entities/title";
 import { useTitlePage } from "../model/hooks/useTitlePage";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
-import { BackButton } from "@/shared/ui/BackButton/BackButton";
+import { BackButton } from "@/shared/ui/";
 import styles from "./TitlePage.module.scss";
+import { WatchTitleButton } from "@/features/watch-title";
+import { AddToFavoritesButton } from "@/features/add-to-favorite";
 
 export const TitlePage = () => {
     const { id } = useParams();
@@ -63,7 +65,15 @@ export const TitlePage = () => {
                         </div>
                         <TitleInfo
                             title={movieDetail}
-                            isUnvailableWatch={isUnvailableWatch}
+                            renderActions={
+                                <>
+                                    <WatchTitleButton
+                                        id={movieDetail.kinopoiskId}
+                                        disabled={isUnvailableWatch}
+                                    />
+                                    <AddToFavoritesButton title={movieDetail} />
+                                </>
+                            }
                         />
                     </div>
                 </div>
