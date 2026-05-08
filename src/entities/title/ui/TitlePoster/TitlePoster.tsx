@@ -1,4 +1,4 @@
-import { Pill } from "@/shared/ui/Pill";
+import { Pill } from "@/shared/ui";
 import { getRatingVariant } from "@/shared/lib/helpers/getRatingVariant";
 import playIcon from "@/shared/assets/icons/play.svg";
 import altImage from '@/shared/assets/icons/no-poster.svg'

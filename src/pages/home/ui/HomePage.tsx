@@ -1,12 +1,11 @@
 import { HeroBanner, HeroBannerSkeleton } from "@/widgets/featuredFilm";
 import { MediaRail } from "@/widgets/mediaRail";
-import { useGetMoviesQuery } from "@/entities/title";
-import { CollectionType } from "@/entities/title";
+import { useGetMoviesQuery, CollectionType } from "@/entities/title";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useFeaturedTitle } from "../model/hooks/useFeaturedTitle";
-import styles from "./HomePage.module.scss";
 import { withSkeleton } from "@/shared/lib/hocs/withSkeleton";
 import { MediaRailSkeleton } from "@/widgets/mediaRail";
+import styles from "./HomePage.module.scss";
 
 const MediaRailWithSkeleton = withSkeleton(MediaRail, MediaRailSkeleton);
 
@@ -42,7 +41,6 @@ export const HomePage = () => {
         <div className={styles.page}>
             <div className="container">
                 <div className={styles.layout}>
-
                     {isLoading ? (
                         <HeroBannerSkeleton />
                     ) : (

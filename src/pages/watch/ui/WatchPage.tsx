@@ -1,6 +1,6 @@
 import { useGetMovieIframeQuery } from "@/entities/watch-title";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
-import { BackButton } from "@/shared/ui/BackButton/BackButton";
+import { BackButton } from "@/shared/ui";
 import { useParams } from "react-router";
 import styles from "./WatchPage.module.scss";
 import { WatchPageSkeleton } from "./WatchPageSkeleton";
@@ -28,6 +28,7 @@ export const WatchPage = () => {
                         src={data.iframeUrl}
                         className={styles.player}
                         allowFullScreen
+                        title={`Просмотр ${data.title}`}
                     />
                 </div>
             </div>

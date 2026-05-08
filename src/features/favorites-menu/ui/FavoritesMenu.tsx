@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Dropdown } from "@/shared/ui/Dropdown";
+import { Dropdown } from "@/shared/ui";
 import { PATHS, routePaths } from "@/shared/config/routePaths";
 import { NO_POSTER } from "@/entities/title";
 import FavoriteIcon from "@/shared/assets/icons/favorite.svg?react";

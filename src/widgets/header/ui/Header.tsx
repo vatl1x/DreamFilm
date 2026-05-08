@@ -1,4 +1,4 @@
-import { Logo } from "@/shared/ui/Logo/Logo";
+import { Logo } from "@/shared/ui";
 import { SearchTitle } from "@/features/search-title";
 import { FavoritesMenu } from "@/features/favorites-menu";
 import styles from "./Header.module.scss";

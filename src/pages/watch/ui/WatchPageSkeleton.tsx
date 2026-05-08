@@ -1,4 +1,4 @@
-import { BackButton } from "@/shared/ui/BackButton/BackButton";
+import { BackButton } from "@/shared/ui";
 import styles from "./WatchPage.module.scss";
 
 export const WatchPageSkeleton = () => {

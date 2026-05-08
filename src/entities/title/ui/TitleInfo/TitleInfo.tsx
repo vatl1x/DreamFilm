@@ -1,15 +1,13 @@
-import { WatchTitleButton } from "@/features/watch-title";
-import { AddToFavoritesButton } from "@/features/add-to-favorite";
-import { Pill } from "@/shared/ui/Pill";
+import { Pill } from "@/shared/ui";
 import { TitleDetail } from "../../model/types";
 import styles from "./TitleInfo.module.scss";
 
 interface Props {
     title: TitleDetail;
-    isUnvailableWatch?: boolean;
+    renderActions?: React.ReactNode;
 }
 
-export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
+export const TitleInfo = ({ title, renderActions }: Props) => {
     return (
         <div className={styles.infoColumn}>
             <div className={styles.headBlock}>
@@ -50,13 +48,9 @@ export const TitleInfo = ({ title, isUnvailableWatch }: Props) => {
                 </div>
             )}
 
-            <div className={styles.actions}>
-                <WatchTitleButton
-                    id={title.kinopoiskId}
-                    disabled={isUnvailableWatch}
-                />
-                <AddToFavoritesButton title={title}/>
-            </div>
+            {renderActions && (
+                <div className={styles.actions}>{renderActions} </div>
+            )}
         </div>
     );
 };
