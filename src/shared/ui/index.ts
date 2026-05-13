@@ -1,4 +1,4 @@
-export { BackButton } from "./BackButton/BackButton";
+export { BackButton } from "./BackButton";
 export { Dropdown } from "./Dropdown";
 export { ImageViewer } from "./ImageViewer";
 export { Logo } from "./Logo";

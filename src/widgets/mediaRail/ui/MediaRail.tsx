@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { TitleCard } from "@/entities/title";
-import { CollectionType, Title } from "@/entities/title/model/types";
+import { MovieCard } from "@/entities/movie";
+import { CollectionType, Movie } from "@/entities/movie/model/types";
 import { useScrollControls } from "@/shared/lib/hooks/useScrollControls";
 import ArrowIcon from "@/shared/assets/icons/arrow-left.svg?react";
 import styles from "./MediaRail.module.scss";
@@ -8,7 +8,7 @@ import { routePaths } from "@/shared/config/routePaths";
 
 interface Props {
     label: string;
-    data: Title[];
+    data: Movie[];
     collectionType: CollectionType;
 }
 export const MediaRail = ({ label, data, collectionType }: Props) => {
@@ -57,18 +57,18 @@ export const MediaRail = ({ label, data, collectionType }: Props) => {
                     onScroll={updateScrollState}
                 >
                     <ul className={styles.mediaList}>
-                        {data?.map((title) => (
+                        {data?.map((movie) => (
                             <li
-                                key={title.kinopoiskId}
+                                key={movie.kinopoiskId}
                                 className={styles.mediaItem}
                             >
-                                <TitleCard
-                                    kinopoiskId={title.kinopoiskId}
-                                    nameRu={title.nameRu}
-                                    posterUrl={title.posterUrl}
-                                    ratingKinopoisk={title.ratingKinopoisk}
-                                    genres={title.genres}
-                                    year={title.year}
+                                <MovieCard
+                                    kinopoiskId={movie.kinopoiskId}
+                                    nameRu={movie.nameRu}
+                                    posterUrl={movie.posterUrl}
+                                    ratingKinopoisk={movie.ratingKinopoisk}
+                                    genres={movie.genres}
+                                    year={movie.year}
                                 />
                             </li>
                         ))}

@@ -12,10 +12,10 @@ export const router = createBrowserRouter([
         children: [
             { index: true, element: <HomePage /> },
             {
-                path: PATHS.TITLE,
+                path: PATHS.MOVIE,
                 lazy: async () => {
-                    const { TitlePage } = await import("@/pages/title");
-                    return { Component: TitlePage };
+                    const { MoviePage } = await import("@/pages/movie");
+                    return { Component: MoviePage };
                 },
             },
             {

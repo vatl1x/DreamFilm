@@ -1,9 +1,9 @@
-import { CollectionType } from "@/entities/title/model/types";
+import { CollectionType } from "@/entities/movie/model/types";
 import {
     CollectionLabel,
-    TitleCard,
-    TitleCardSkeleton,
-} from "@/entities/title";
+    MovieCard,
+    MovieCardSkeleton,
+} from "@/entities/movie";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { useCollectionPage } from "../model/hooks/useCollectionPage";
 import dumpling from "@/shared/assets/icons/dumpling-loader.svg";
@@ -11,7 +11,7 @@ import styles from "./CollectionPage.module.scss";
 export const CollectionPage = () => {
     const {
         collection,
-        allTitles,
+        allMovies,
         lastItemRef,
         isInitialLoading,
         isFetchingMore,
@@ -30,20 +30,20 @@ export const CollectionPage = () => {
                     {isInitialLoading
                         ? [...Array(10)].map((_, ind) => (
                               <li key={ind} className={styles.collectionItem}>
-                                  <TitleCardSkeleton />
+                                  <MovieCardSkeleton />
                               </li>
                           ))
-                        : allTitles.map((title, index) => (
+                        : allMovies.map((movie, index) => (
                               <li
-                                  key={title.kinopoiskId}
+                                  key={movie.kinopoiskId}
                                   ref={
-                                      index === allTitles.length - 1
+                                      index === allMovies.length - 1
                                           ? lastItemRef
                                           : null
                                   }
                                   className={styles.collectionItem}
                               >
-                                  <TitleCard {...title} />
+                                  <MovieCard {...movie} />
                               </li>
                           ))}
                 </ul>

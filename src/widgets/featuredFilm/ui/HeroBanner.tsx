@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { WatchTitleButton } from "@/features/watch-title";
-import { Title } from "@/entities/title";
+import { WatchMovieButton } from "@/features/watch-movie";
+import { Movie } from "@/entities/movie";
 import { routePaths } from "@/shared/config/routePaths";
 import { Pill } from "@/shared/ui";
 import { getRatingVariant } from "@/shared/lib/helpers/getRatingVariant";
@@ -9,11 +9,11 @@ import styles from "./HeroBanner.module.scss";
 import { AddToFavoritesButton } from "@/features/add-to-favorite";
 
 interface Props {
-    title: Title;
+    movie: Movie;
 }
 
-export const HeroBanner = ({ title }: Props) => {
-    if (!title) return null;
+export const HeroBanner = ({ movie }: Props) => {
+    if (!movie) return null;
 
     const {
         kinopoiskId,
@@ -25,7 +25,7 @@ export const HeroBanner = ({ title }: Props) => {
         ratingAgeLimits,
         description,
         coverUrl,
-    } = title;
+    } = movie;
 
     return (
         <section
@@ -67,11 +67,11 @@ export const HeroBanner = ({ title }: Props) => {
 
             <ul className={styles.actionsButtons}>
                 <li>
-                    <WatchTitleButton id={kinopoiskId} />
+                    <WatchMovieButton id={kinopoiskId} />
                 </li>
                 <li>
                     <Link
-                        to={routePaths.title(kinopoiskId)}
+                        to={routePaths.movie(kinopoiskId)}
                         className={styles.detailButton}
                     >
                         <img src={detailBtn} alt="" width={20} height={20} />
@@ -79,7 +79,7 @@ export const HeroBanner = ({ title }: Props) => {
                     </Link>
                 </li>
                 <li>
-                    <AddToFavoritesButton title={title} />
+                    <AddToFavoritesButton movie={movie} />
                 </li>
             </ul>
         </section>

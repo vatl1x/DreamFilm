@@ -1,4 +1,4 @@
-import { useGetMovieIframeQuery } from "@/entities/watch-title";
+import { useGetMovieIframeQuery } from "@/entities/movie";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
 import { BackButton } from "@/shared/ui";
 import { useParams } from "react-router";
