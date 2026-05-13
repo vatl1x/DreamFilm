@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router";
-import { useGetMoviesQuery } from "@/entities/title";
-import { Title, CollectionType } from "@/entities/title/model/types";
+import { useGetMoviesQuery } from "@/entities/movie";
+import { Movie, CollectionType } from "@/entities/movie/model/types";
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll";
 
 export const useCollectionPage = () => {
     const { collection } = useParams();
     const [page, setPage] = useState(1);
-    const [allTitles, setAllTitles] = useState<Title[]>([]);
+    const [allMovies, setAllMovies] = useState<Movie[]>([]);
     const lastItemRef = useRef<HTMLLIElement | null>(null);
 
     const { data, isFetching } = useGetMoviesQuery(
@@ -22,12 +22,12 @@ export const useCollectionPage = () => {
 
     useEffect(() => {
         setPage(1);
-        setAllTitles([]);
+        setAllMovies([]);
     }, [collection]);
 
     useEffect(() => {
         if (data?.items) {
-            setAllTitles((prev) => {
+            setAllMovies((prev) => {
                 //сет чтобы отсеить дубликаты(проблем kinopUNO)
                 const uniqueIds = new Set(prev.map((t) => t.kinopoiskId));
                 const newItems = data.items.filter(
@@ -44,14 +44,14 @@ export const useCollectionPage = () => {
         totalPages: data?.totalPages,
         page,
         onLoadMore: () => setPage((prev) => prev + 1),
-        listLength: allTitles.length,
+        listLength: allMovies.length,
     });
-    const isInitialLoading = isFetching && allTitles.length === 0;
-    const isFetchingMore = isFetching && allTitles.length > 0;
+    const isInitialLoading = isFetching && allMovies.length === 0;
+    const isFetchingMore = isFetching && allMovies.length > 0;
 
     return {
         collection,
-        allTitles,
+        allMovies,
         lastItemRef,
         isInitialLoading,
         isFetchingMore,

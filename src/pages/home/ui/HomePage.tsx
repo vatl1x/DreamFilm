@@ -1,8 +1,8 @@
 import { HeroBanner, HeroBannerSkeleton } from "@/widgets/featuredFilm";
 import { MediaRail } from "@/widgets/mediaRail";
-import { useGetMoviesQuery, CollectionType } from "@/entities/title";
+import { useGetMoviesQuery, CollectionType } from "@/entities/movie";
 import { useScrollToTop } from "@/shared/lib/hooks/useScrollToTop";
-import { useFeaturedTitle } from "../model/hooks/useFeaturedTitle";
+import { useFeaturedMovie } from "../model/hooks/useFeaturedMovie";
 import { withSkeleton } from "@/shared/lib/hocs/withSkeleton";
 import { MediaRailSkeleton } from "@/widgets/mediaRail";
 import styles from "./HomePage.module.scss";
@@ -26,14 +26,14 @@ export const HomePage = () => {
     });
     const isLoading = isLoadingMovies || isLoadingShows || isLoadingTop;
 
-    const allTitles = [
+    const allMovies = [
         ...(popularMovies?.items ?? []),
         ...(popularSeries?.items ?? []),
         ...(topMovies?.items ?? []),
     ];
 
-    const isLoadedTitles = !!popularMovies && !!popularSeries && !!topMovies;
-    const featuredTitle = useFeaturedTitle(isLoadedTitles ? allTitles : []);
+    const isLoadedMovies = !!popularMovies && !!popularSeries && !!topMovies;
+    const featuredMovie = useFeaturedMovie(isLoadedMovies ? allMovies : []);
 
     useScrollToTop();
 
@@ -44,7 +44,7 @@ export const HomePage = () => {
                     {isLoading ? (
                         <HeroBannerSkeleton />
                     ) : (
-                        featuredTitle && <HeroBanner title={featuredTitle} />
+                        featuredMovie && <HeroBanner movie={featuredMovie} />
                     )}
                     <MediaRailWithSkeleton
                         isLoading={isLoading}

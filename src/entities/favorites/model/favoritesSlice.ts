@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Title, TitleDetail } from "@/entities/title/model/types";
+import type { Movie, MovieDetail } from "@/entities/movie";
 
 interface FavoriteSlice {
-    items: (Title | TitleDetail)[];
+    items: (Movie | MovieDetail)[];
 }
 
 const favoritesSlice = createSlice({
     name: "favorites",
     initialState: { items: [] } as FavoriteSlice,
     reducers: {
-        addFavorite(state, action: PayloadAction<Title | TitleDetail>) {
+        addFavorite(state, action: PayloadAction<Movie | MovieDetail>) {
             const exist = state.items.some(
                 (item) => item.kinopoiskId === action.payload.kinopoiskId,
             );

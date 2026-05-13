@@ -1,4 +1,4 @@
-import { TitleCardSkeleton } from "@/entities/title";
+import { MovieCardSkeleton } from "@/entities/movie";
 import { Skeleton } from "@/shared/ui";
 import styles from "./MediaRailSkeleton.module.scss";
 
@@ -16,7 +16,7 @@ export const MediaRailSkeleton = () => {
                 <ul className={styles.mediaList}>
                     {[...Array(CARDS_COUNT)].map((_, i) => (
                         <li key={i} className={styles.mediaItem}>
-                            <TitleCardSkeleton />
+                            <MovieCardSkeleton />
                         </li>
                     ))}
                 </ul>

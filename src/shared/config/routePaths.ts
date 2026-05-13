@@ -1,15 +1,15 @@
-import { CollectionType } from "@/entities/title/model/types";
+import { CollectionType } from "@/entities/movie/model/types";
 
 export const PATHS = {
     HOME: "/",
-    TITLE: "title/:id",
+    MOVIE: "movie/:id",
     WATCH: "watch/:id",
     COLLECTION: "collection/:collection",
     FAVORITES: "favorites",
 } as const;
 
 export const routePaths = {
-    title: (id: string | number) => `/title/${id}`,
+    movie: (id: string | number) => `/movie/${id}`,
     watch: (id: string | number) => `/watch/${id}`,
     collection: (collection: CollectionType) => `/collection/${collection}`,
 } as const;

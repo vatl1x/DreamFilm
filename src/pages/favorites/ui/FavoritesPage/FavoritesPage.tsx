@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useFavorites } from "@/features/favorites-menu";
-import { TitleCard } from "@/entities/title";
+import { MovieCard } from "@/entities/movie";
 import styles from "./FavoritesPage.module.scss";
 
 export const FavoritesPage = () => {
@@ -34,17 +34,17 @@ export const FavoritesPage = () => {
                             </span>
                         </h2>
                         <ul className={styles.grid}>
-                            {favorites.map((title) => (
+                            {favorites.map((movie) => (
                                 <li
                                     className={styles.gridItem}
-                                    key={title.kinopoiskId}
+                                    key={movie.kinopoiskId}
                                 >
-                                    <TitleCard {...title} />
+                                    <MovieCard {...movie} />
 
                                     <button
                                         className={styles.removeButton}
                                         onClick={() =>
-                                            remove(title.kinopoiskId)
+                                            remove(movie.kinopoiskId)
                                         }
                                         type="button"
                                     >

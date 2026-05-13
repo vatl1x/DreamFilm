@@ -1,22 +1,25 @@
-import { useAppDispatch, useAppSelector } from "@/app/providers/store/config/hooks";
+import {
+    useAppDispatch,
+    useAppSelector,
+} from "@/app/providers/store/config/hooks";
 import {
     addFavorite,
     removeFavorite,
     selectIsFavorite,
 } from "@/entities/favorites";
-import { Title, TitleDetail } from "@/entities/title/model/types";
+import { Movie, MovieDetail } from "@/entities/movie/model/types";
 import plusBtn from "@/shared/assets/icons/plus.svg";
 import checkmarkBtn from "@/shared/assets/icons/checkmark.svg";
 import styles from "./AddToFavoritesButton.module.scss";
 import clsx from "clsx";
 
 interface Props {
-    title: Title | TitleDetail;
+    movie: Movie | MovieDetail;
 }
 
-export const AddToFavoritesButton = ({ title }: Props) => {
+export const AddToFavoritesButton = ({ movie }: Props) => {
     const dispatch = useAppDispatch();
-    const isAdded = useAppSelector(selectIsFavorite(title.kinopoiskId));
+    const isAdded = useAppSelector(selectIsFavorite(movie.kinopoiskId));
 
     return (
         <button
@@ -27,9 +30,9 @@ export const AddToFavoritesButton = ({ title }: Props) => {
             )}
             onClick={() => {
                 if (isAdded) {
-                    dispatch(removeFavorite(title.kinopoiskId));
+                    dispatch(removeFavorite(movie.kinopoiskId));
                 } else {
-                    dispatch(addFavorite(title));
+                    dispatch(addFavorite(movie));
                 }
             }}
             aria-label={

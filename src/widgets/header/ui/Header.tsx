@@ -1,5 +1,5 @@
 import { Logo } from "@/shared/ui";
-import { SearchTitle } from "@/features/search-title";
+import { SearchMovie } from "@/features/search-movie";
 import { FavoritesMenu } from "@/features/favorites-menu";
 import styles from "./Header.module.scss";
 
@@ -11,7 +11,7 @@ export const Header = () => (
                     <Logo />
                 </div>
                 <div className={styles.headerActions}>
-                    <SearchTitle />
+                    <SearchMovie />
                     <FavoritesMenu />
                 </div>
             </div>
